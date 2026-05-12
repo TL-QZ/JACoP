@@ -1,0 +1,3 @@
+# Official Implementation for JACoP: Joint Alignment for Compliant Multi-Agent Prediction
+
+More Instructions Coming Soon
