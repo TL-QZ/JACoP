@@ -1,0 +1,33 @@
+#!/bin/bash
+
+CUDA_VISIBLE_DEVICES=5 python train.py \
+        --model MRF \
+        --exp_name JACoP_SDD_Train_0202 \
+        --root data/SDD \
+        --train_batch_size 128 \
+        --val_batch_size 1 \
+        --test_batch_size 1 \
+        --num_workers 8 \
+        --devices 1 \
+        --dataset sdd \
+        --num_historical_steps 8 \
+        --num_future_steps 12 \
+        --hidden_dim 64 \
+        --pl2a_radius 0 \
+        --a2a_radius 50 \
+        --bp_iter 3 \
+        --num_modes 20 \
+        --lr 0.001 \
+        --unary_lambda 1.0 \
+        --unary_only_until 15 \
+        --max_epochs 500 \
+        --T_max 500 \
+        --pairwise_loss_fn focal \
+        --pairwise_potential_type distance\
+        --distance_type cosine \
+        --env_hist_fuse \
+        --unary_recon_loss wta \
+        --qc_encoding_only \
+        --apply_env_filtering \
+        --collision_thresh 0.5 \
+        --apply_collision_filtering 

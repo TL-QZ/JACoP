@@ -1,0 +1,2 @@
+CUDA_VISIBLE_DEVICES=0 python train.py \
+--model MRF --exp_name MRF_SDD_Train_debug --root data/SDD --train_batch_size 8 --val_batch_size 1 --test_batch_size 1 --num_workers 8 --devices 1 --dataset sdd --num_historical_steps 8 --num_future_steps 12 --hidden_dim 64 --pl2a_radius 0 --a2a_radius 50 --bp_iter 3 --num_modes 20 --lr 0.001 --unary_only_until -1 --max_epochs 50 --T_max 50 --unary_recon_loss wta --env_hist_fuse --qc_encoding_only --apply_env_filter --collision_thresh 0.5 --apply_collision_penalty

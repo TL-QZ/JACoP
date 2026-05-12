@@ -1,0 +1,15 @@
+{
+	"dataset_dir": "data/SDD/train",
+	"dataset": "",
+
+	"traj_dim": 2,
+	"obs_len": 8,
+	"pred_len": 12,
+	"skip": 1,
+
+	"k": 4,
+	"num_samples": 1000,
+	"num_outputs": 20,
+	"obs_svd": true,
+	"pred_svd": true
+}

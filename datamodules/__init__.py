@@ -1,0 +1,2 @@
+from datamodules.eth_ucy_datamodule import ETHUCYDataModule
+from datamodules.sdd_datamodule import SDDDataModule
