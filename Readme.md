@@ -16,7 +16,7 @@ pip install numpy pandas scipy matplotlib tqdm pillow opencv-python scikit-image
 
 Install PyTorch and PyTorch Geometric from their official instructions for your CUDA version. For example, use the PyTorch selector for `torch`/`torchvision`, then install `torch-geometric` and its compiled extensions with wheels matching the installed PyTorch/CUDA build.
 
-## Data Layout
+## Data Folder
 
 `data/` is intentionally gitignored. Download or prepare the datasets so they match these layouts.
 
@@ -52,7 +52,7 @@ Processed dataset caches are created automatically under:
 
 If you regenerate anchors after processed files already exist, delete the corresponding `processed/` directory before training or testing, because anchor labels and environment-compliance scores are stored in the processed cache.
 
-## Generate Anchors
+## Step 1: Generate Anchors
 
 JACoP requires one anchor file at:
 
@@ -86,7 +86,7 @@ Useful options:
 
 The older `prepare/prep_anchor.py` entrypoint is kept for compatibility, but `prepare/generate_anchors.py` is the recommended interface because it does not require editing JSON config files.
 
-## Train
+## Step 2: Train
 
 Training automatically preprocesses raw data into the `processed/` cache when needed. Validation and testing batch size are forced to `1` inside `train.py`.
 
