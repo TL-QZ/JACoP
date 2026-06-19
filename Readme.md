@@ -1,6 +1,6 @@
 # JACoP: Joint Alignment for Compliant Multi-Agent Prediction
 
-Official implementation of **JACoP**, a trajectory-prediction model that combines trajectory-prototype anchors, environment compliance, and pairwise multi-agent reasoning.
+Official implementation of **JACoP Joint Alignment for Compliant Multi-Agent Predictio**
 
 [\[arXiv\]](https://arxiv.org/abs/2605.11385) [\[CVPR 2026 paper page\]](https://openaccess.thecvf.com/content/CVPR2026F/html/Liu_JACoP_Joint_Alignment_for_Compliant_Multi-Agent_Prediction_CVPRF_2026_paper.html) [\[Project Website\]](https://github.com/TL-QZ/JACoP)
 
