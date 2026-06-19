@@ -27,6 +27,7 @@ if __name__ == '__main__':
 
     parser = ArgumentParser()
     parser.add_argument('--model', type=str, required=True)
+    parser.add_argument('--dataset', type=str, required=True, choices=['eth_ucy', 'sdd'])
     parser.add_argument('--exp_name', type=str, required=False)
     parser.add_argument('--root', type=str, required=True)
     parser.add_argument('--batch_size', type=int, default=1)
@@ -61,6 +62,8 @@ if __name__ == '__main__':
 
     checkpoints = torch.load(args.ckpt_path, map_location='cpu')
     hyperparams = checkpoints['hyper_parameters']
+    hyperparams['dataset'] = args.dataset
+    hyperparams['root'] = args.root
     if args.overwrite:
         hyperparams['sampling_mode'] = args.sampling_mode
         hyperparams['save_output'] = args.save_output
@@ -71,7 +74,11 @@ if __name__ == '__main__':
     
     tb_logger = False
 
-    test_dataset = ETHUCYDataset(root=args.root, split='test')
+    DATASETS = {
+        'eth_ucy': ETHUCYDataset,
+        'sdd': SDDDataset,
+    }
+    test_dataset = DATASETS[args.dataset](root=args.root, split='test')
     dataloader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.num_workers,
                             pin_memory=args.pin_memory, persistent_workers=args.persistent_workers)
     trainer = pl.Trainer(accelerator=args.accelerator, devices=args.devices, strategy='ddp', logger=tb_logger)

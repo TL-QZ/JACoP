@@ -29,6 +29,7 @@ for i in "${!splits[@]}"; do
     echo "${separator}" | tee -a "$log_file"
     CUDA_VISIBLE_DEVICES=$device_id python test.py \
         --model MRF \
+        --dataset eth_ucy \
         --root data/eth_ucy/${split} \
         --ckpt_path "${ckpt_path}" \
         --batch_size 1 \
